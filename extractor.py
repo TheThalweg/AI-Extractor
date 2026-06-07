@@ -1,10 +1,12 @@
 import os
 import json
+import concurrent.futures
 from bs4 import BeautifulSoup
 import ollama
 
 DATA_DIR = "./Data" 
 OUTPUT_FILE = "classified_emails.json"
+FAILED_LOG_FILE = "failed_emails.json"
 
 SYSTEM_PROMPT = """
 You are an expert financial analyst assistant. Your job is to classify market research emails.
@@ -89,8 +91,13 @@ def extract_email_data(html_path):
     pdf_files = [f for f in os.listdir(folder_path) if f.lower().endswith('.pdf')]
     pdf_attachment = pdf_files if pdf_files else None
 
-    with open(html_path, "r", encoding="utf-8") as f:
-        html_content = f.read()
+    try:
+        with open(html_path, "r", encoding="utf-8") as f:
+            html_content = f.read()
+    except UnicodeDecodeError:
+        # Fallback to latin-1 for documents with legacy character encoding
+        with open(html_path, "r", encoding="latin-1") as f:
+            html_content = f.read()
 
     # Clean the HTML to save token space for Llama 3
     soup = BeautifulSoup(html_content, "html.parser")
@@ -112,26 +119,31 @@ def extract_email_data(html_path):
 def analyze_with_llama(email_text):
     """Sends clean text to Llama 3 enforcing a native JSON structure response."""
     user_prompt = f"Analyze the following financial research text and classify it:\n\n{email_text}"
-    
-    try:
-        response = ollama.chat(
+
+    # Use ThreadPoolExecutor to enforce a 2-minute (120s) timeout
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+        future = executor.submit(
+            ollama.chat,
             model="llama3",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt}
             ],
-            format="json", 
-            options={"temperature": 0.0} # we hate creativity
+            format="json",
+            options={"temperature": 0.0}
         )
-        
-        # Parse the JSON string from Llama 3 into a Python Dict
-        return json.loads(response.message.content)
-    except Exception as e:
-        print(f"Error calling Llama 3: {e}")
-        return None
+        try:
+            response = future.result(timeout=120)
+            # Parse the JSON string from Llama 3 into a Python Dict
+            return json.loads(response.message.content)
+        except concurrent.futures.TimeoutError:
+            raise Exception("Llama 3 classification timed out after 120 seconds")
+        except Exception as e:
+            raise Exception(f"LLM analysis error: {e}")
 
 def main():
     classified_results = []
+    failed_results = []
 
     if not os.path.exists(DATA_DIR):
         print(f"Error: Data directory '{DATA_DIR}' not found. Please create it or adjust config.")
@@ -144,45 +156,57 @@ def main():
                 continue
 
             html_path = os.path.join(root, file)
-
-            extracted = extract_email_data(html_path)
-            classification = analyze_with_llama(extracted["clean_text"])
-            
-            if classification:
-                primary = classification.get("primary_asset_tag", "Unknown")
-                tags = classification.get("asset_tags", [])
+            try:
+                extracted = extract_email_data(html_path)
+                classification = analyze_with_llama(extracted["clean_text"])
                 
-                # Ensures primary tag is included in the asset tags list
-                if primary != "Unknown" and primary not in tags:
-                    tags.append(primary)
-                
-                # Company + industry tags only allowed when "Equity" is in the asset tags
-                # Sometimes the AI is stupid and includes it anyway 
-                # Would rather a correct system than a fast one
-                has_equity = any("Equity" in str(tag) for tag in tags)
-                companies = classification.get("companies_mentioned", []) if has_equity else []
-                industries = classification.get("industry_subindustry", []) if has_equity else []
+                if classification:
+                    primary = classification.get("primary_asset_tag", "Unknown")
+                    tags = classification.get("asset_tags", [])
+                    
+                    # Ensures primary tag is included in the asset tags list
+                    if primary != "Unknown" and primary not in tags:
+                        tags.append(primary)
+                    
+                    # Company + industry tags only allowed when "Equity" is in the asset tags
+                    has_equity = any("Equity" in str(tag) for tag in tags)
+                    companies = classification.get("companies_mentioned", []) if has_equity else []
+                    industries = classification.get("industry_subindustry", []) if has_equity else []
 
-                final_entry = {
-                    "folder_name": classification.get("folder_name", "Unknown"),
-                    "bank": classification.get("bank", "Unknown"),
-                    "date": classification.get("date", "Unknown"),
-                    "market_wrap": classification.get("market_wrap", "NO"),
-                    "primary_asset_tag": primary,
-                    "asset_tags": tags,
-                    "companies_mentioned": companies,
-                    "industry_subindustry": industries,
-                    "pdf_attachment": extracted["pdf_attachment"],
-                    "source_file": extracted["source_file"]
-                }
-                classified_results.append(final_entry)
-                print(f"\n--- Classified Entry: {extracted['source_file']} ---")
-                print(json.dumps(final_entry, indent=4))
+                    final_entry = {
+                        "folder_name": classification.get("folder_name", "Unknown"),
+                        "bank": classification.get("bank", "Unknown"),
+                        "date": classification.get("date", "Unknown"),
+                        "market_wrap": classification.get("market_wrap", "NO"),
+                        "primary_asset_tag": primary,
+                        "asset_tags": tags,
+                        "companies_mentioned": companies,
+                        "industry_subindustry": industries,
+                        "pdf_attachment": extracted["pdf_attachment"],
+                        "source_file": extracted["source_file"]
+                    }
+                    classified_results.append(final_entry)
+                    print(f"\n--- Classified Entry: {extracted['source_file']} ---")
+                    print(json.dumps(final_entry, indent=4))
+                else:
+                    raise Exception("Ollama did not return a valid classification object.")
+            except Exception as e:
+                print(f"Error processing {html_path}: {e}")
+                failed_results.append({
+                    "file": html_path,
+                    "error": str(e)
+                })
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(classified_results, f, indent=4)
-        
+
+    if failed_results:
+        with open(FAILED_LOG_FILE, "w", encoding="utf-8") as f:
+            json.dump(failed_results, f, indent=4)
+
     print(f"Pipeline complete! Saved results to {OUTPUT_FILE}")
+    if failed_results:
+        print(f"Failures recorded: {len(failed_results)}. See {FAILED_LOG_FILE}")
 
 if __name__ == "__main__":
     main()

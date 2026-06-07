@@ -11,12 +11,13 @@ You are an expert financial analyst assistant. Your job is to classify market re
 You must respond ONLY with a single, valid JSON object matching the requested schema. No conversational filler text.
 
 The returned JSON should have the following info:
+folder_name Subject / title of the research note
 bank - Publishing investment bank
 date - Publication date (YYYY-MM-DD)
 market_wrap YES or NO — see Market Wrap rules below
 primary_asset_tag - The single most important asset class tag
 asset_tags - Array of ALL relevant tags (primary + sub-tags)
-companies_mentioned - Array of companies materially discussed (Equity only)
+companies_mentioned - Array of companies materially discussed (Only if there is an Equity tag)
 industry_subindustry - Array of sector > subindustry strings (Equity only) e.g. ENERGY > gas
 
 
@@ -74,15 +75,15 @@ Use the following roles to determine whether an email is a Market Wrap. If the m
    - TRANSPORTATION > Air Freight; Airlines; Airports; Infrastructure; Logistics; Railroads; Shipping; Trucking
    - UTILITIES > Diversified; Gas; MLPs; Power; Utilities; Water
    
+  Do not include anything in the companies_mentioned unless equity is in the asset_tags
+   
 """
 
-def extract_email_data(folder_path):
-    """Reads folder contents and extracts raw metadata and stripped text."""
+def extract_email_data(html_path):
+    """Reads an HTML file and extracts raw metadata and stripped text."""
+    folder_path = os.path.dirname(html_path)
     folder_name = os.path.basename(folder_path)
-    html_path = os.path.join(folder_path, "emailbody.html")
-    
-    if not os.path.exists(html_path):
-        return None
+    file_name = os.path.basename(html_path)
 
     # Find PDF attachments if present
     pdf_files = [f for f in os.listdir(folder_path) if f.lower().endswith('.pdf')]
@@ -103,8 +104,7 @@ def extract_email_data(folder_path):
     clean_text = " ".join(clean_text.split())
 
     return {
-        "folder_name": folder_name,
-        "source_file": folder_name,
+        "source_file": folder_name if folder_name != os.path.basename(DATA_DIR) else "Root", # confusingly this is the folder name
         "pdf_attachment": pdf_attachment,
         "clean_text": clean_text[:8000] # Cap text slice to protect context window limits
     }
@@ -138,31 +138,46 @@ def main():
         return
 
     print("Starting classification pipeline...")
-    for item in os.listdir(DATA_DIR):
-        folder_path = os.path.join(DATA_DIR, item)
-        if os.path.isdir(folder_path):
-            print(f"Processing folder: {item}...")
-            
-            extracted = extract_email_data(folder_path)
-            if not extracted:
+    for root, dirs, files in os.walk(DATA_DIR):
+        for file in files:
+            if not file.lower().endswith(".html"):
                 continue
-                
+
+            html_path = os.path.join(root, file)
+
+            extracted = extract_email_data(html_path)
             classification = analyze_with_llama(extracted["clean_text"])
             
             if classification:
+                primary = classification.get("primary_asset_tag", "Unknown")
+                tags = classification.get("asset_tags", [])
+                
+                # Ensures primary tag is included in the asset tags list
+                if primary != "Unknown" and primary not in tags:
+                    tags.append(primary)
+                
+                # Company + industry tags only allowed when "Equity" is in the asset tags
+                # Sometimes the AI is stupid and includes it anyway 
+                # Would rather a correct system than a fast one
+                has_equity = any("Equity" in str(tag) for tag in tags)
+                companies = classification.get("companies_mentioned", []) if has_equity else []
+                industries = classification.get("industry_subindustry", []) if has_equity else []
+
                 final_entry = {
-                    "folder_name": extracted["folder_name"],
+                    "folder_name": classification.get("folder_name", "Unknown"),
                     "bank": classification.get("bank", "Unknown"),
                     "date": classification.get("date", "Unknown"),
                     "market_wrap": classification.get("market_wrap", "NO"),
-                    "primary_asset_tag": classification.get("primary_asset_tag", "Unknown"),
-                    "asset_tags": classification.get("asset_tags", []),
-                    "companies_mentioned": classification.get("companies_mentioned", []),
-                    "industry_subindustry": classification.get("industry_subindustry", []),
+                    "primary_asset_tag": primary,
+                    "asset_tags": tags,
+                    "companies_mentioned": companies,
+                    "industry_subindustry": industries,
                     "pdf_attachment": extracted["pdf_attachment"],
                     "source_file": extracted["source_file"]
                 }
                 classified_results.append(final_entry)
+                print(f"\n--- Classified Entry: {extracted['source_file']} ---")
+                print(json.dumps(final_entry, indent=4))
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(classified_results, f, indent=4)

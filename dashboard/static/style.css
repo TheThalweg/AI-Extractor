@@ -1,0 +1,360 @@
+/* GPT made most of this pretty then I did some edits after */
+:root {
+    --bg-color: #f4f7fa;
+    --sidebar-bg: #ffffff;
+    --header-bg: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #e0e5eb;
+    --text-color: #333;
+    --text-light: #667;
+    --primary-color: #0052cc;
+    --primary-hover: #0041a3;
+    --chip-bg: #e6f0ff;
+    --chip-text: #0052cc;
+    --ticker-bg: #1d2939;
+    --ticker-text: #f2f4f7;
+}
+
+@keyframes scroll-ticker {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* --- News Ticker --- */
+.news-ticker-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--ticker-bg);
+    color: var(--ticker-text);
+    padding: 8px 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.ticker-label {
+    font-weight: bold;
+    padding-right: 20px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+#last-updated {
+    font-weight: normal;
+    color: #98a2b3;
+    margin-left: 8px;
+}
+
+.news-ticker {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.ticker-content {
+    display: inline-block;
+    padding-left: 100%; /* Start off-screen */
+    animation: scroll-ticker 120s linear infinite;
+}
+
+.news-ticker:hover .ticker-content {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    display: inline-block;
+    margin: 0 25px;
+    font-size: 0.9em;
+}
+
+.ticker-item a {
+    color: var(--ticker-text);
+    text-decoration: none;
+}
+.ticker-item a:hover {
+    text-decoration: underline;
+}
+
+/* --- Main Layout --- */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 24px 24px 24px;
+}
+
+.dashboard-header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.search-container input {
+    width: 350px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-size: 1em;
+}
+
+.main-content {
+    display: flex;
+    gap: 24px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* --- Sidebar & Filters --- */
+.sidebar {
+    width: 450px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+}
+
+.filters-section {
+    background: var(--sidebar-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    height: 300px;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.resizer {
+    height: 16px;
+    cursor: row-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.resizer::after {
+    content: "";
+    width: 40px;
+    height: 4px;
+    background: var(--border-color);
+    border-radius: 2px;
+    transition: background 0.2s, width 0.2s;
+}
+
+.resizer:hover::after, .resizer.dragging::after {
+    background: var(--primary-color);
+    width: 60px;
+}
+
+.filters-section h2, .filters-section h3 {
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.filter-group { margin-bottom: 16px; }
+.filter-group div { display: flex; flex-direction: column; gap: 5px; }
+.filter-group label { font-size: 0.9em; cursor: pointer; }
+
+/* --- Nested Asset Tags (Nuclear Option) --- */
+.asset-category { margin-bottom: 0; }
+
+/* Forces a strict 2-column layout: Arrow on the left, text on the right */
+.category-header { 
+    display: grid !important;
+    grid-template-columns: max-content auto; /* Left col fits arrow exactly, right col takes the rest */
+    align-items: center !important;
+    justify-content: start !important;
+    gap: 6px !important;
+    width: max-content; /* Keeps the whole thing locked to the left */
+}
+
+/* Forces the label to stay in the second column and inline */
+.category-header label { 
+    grid-column: 2;
+    display: inline !important; 
+    font-weight: 500; 
+    font-size: 0.8em; 
+    cursor: pointer; 
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Forces the arrow into the first column */
+.toggle-subs {
+    grid-column: 1;
+    background: none !important; border: none !important; cursor: pointer; padding: 0 !important;
+    font-size: 0.6em; color: var(--text-light); 
+    display: inline-block !important;
+    line-height: 1;
+}
+
+.sub-tags {
+    margin: 2px 0 0 14px; 
+    display: flex; flex-direction: column;
+    gap: 2px;
+    border-left: 1px solid var(--border-color); padding-left: 8px;
+}
+
+.sub-tags label {
+    display: inline; font-size: 0.8em;
+}
+
+/* --- Date Filter --- */
+.date-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 8px;
+}
+.date-inputs label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+    color: var(--text-light);
+}
+.date-inputs input {
+    border: 1px solid var(--border-color); border-radius: 4px; padding: 2px 4px; font-family: inherit;
+}
+
+#active-filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.filter-chip {
+    background-color: var(--chip-bg);
+    color: var(--chip-text);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-chip button {
+    border: none;
+    background: none;
+    color: var(--chip-text);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- Email List --- */
+.email-list-container {
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#email-list-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9em;
+    color: var(--text-light);
+}
+
+#email-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.email-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.email-item:hover { background-color: var(--bg-color); }
+.email-item.active { background-color: var(--chip-bg); border-left: 3px solid var(--primary-color); }
+
+.email-item h4 { margin: 0 0 4px 0; font-size: 1em; }
+.email-item .meta { font-size: 0.85em; color: var(--text-light); }
+.email-item .tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.email-item .tag { background: #eee; padding: 2px 6px; border-radius: 4px; font-size: 0.75em; }
+
+/* --- Content Viewer --- */
+.content-viewer {
+    flex-grow: 1;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#viewer-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--text-light);
+}
+
+#viewer-content.hidden { display: none; }
+#viewer-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#metadata-panel {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.9em;
+    background-color: #fafbfc;
+}
+
+.meta-group { display: flex; flex-direction: column; }
+.meta-group h5 { margin: 0 0 4px 0; color: var(--text-light); }
+.meta-group ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.meta-group ul li { background: #eee; padding: 2px 6px; border-radius: 4px; }
+.meta-group a { color: var(--primary-color); text-decoration: none; }
+.meta-group a:hover { text-decoration: underline; }
+
+#email-iframe {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.hidden {
+    display: none !important;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Extractor Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="news-ticker-container">
+        <div class="ticker-label">LATEST HEADLINES <span id="last-updated"></span></div>
+        <div class="news-ticker">
+            <div class="ticker-content" id="ticker-content"></div>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Research Dashboard</h1>
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search by title, bank, company...">
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="filters-section" id="filters-section">
+                    <h2>Filters</h2>
+                    <div class="filter-group">
+                        <h3>Date Range</h3>
+                        <div class="date-inputs">
+                            <label>From: <input type="date" id="date-from"></label>
+                            <label>To: <input type="date" id="date-to"></label>
+                        </div>
+                    </div>
+                    <div id="active-filters-container"></div>
+                    <div class="filter-group">
+                        <h3>Asset Class</h3>
+                        <div id="asset-tags-filter"></div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Bank</h3>
+                        <div id="banks-filter"></div>
+                    </div>
+                </div>
+                <div class="resizer" id="sidebar-resizer"></div>
+                <div class="email-list-container">
+                    <div id="email-list-header">
+                        <span id="email-count">0</span> emails found
+                    </div>
+                    <ul id="email-list"></ul>
+                </div>
+            </aside>
+
+            <main class="content-viewer" id="content-viewer">
+                <div id="viewer-placeholder">
+                    <p>Select an email from the list to view its content.</p>
+                </div>
+                <div id="viewer-content" class="hidden">
+                    <div id="metadata-panel"></div>
+                    <iframe id="email-iframe" src="about:blank"></iframe>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

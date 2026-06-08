@@ -8,6 +8,30 @@ DATA_DIR = "./Data"
 OUTPUT_FILE = "classified_emails.json"
 FAILED_LOG_FILE = "failed_emails.json"
 
+# --- Taxonomy Definitions ---
+VALID_ASSET_TAGS = {
+    "Macro", "Developed Markets", "Emerging Markets",
+    "Fixed Income", "Credit Strategy", "Rates Strategy", "Securitisation",
+    "Equity", "Company Research", "Portfolio Strategy", "Thematic Investing",
+    "Commodities", "Energy", "Metals", "Agriculture",
+    "FX", "USD", "EUR", "JPY", "GBP", "CHF", "Other",
+    "Thematics", "Market Wrap"
+}
+
+VALID_INDUSTRIES = {
+    "BASIC MATERIALS": ["Agriculture", "Chemicals", "Metals & Mining", "Paper & Forest", "Steel"],
+    "CONSUMER STAPLES": ["Beverages", "Consumer Products", "Food", "Retail", "Tobacco"],
+    "CONSUMER CYCLICALS": ["Automobiles", "Branded Consumer Goods", "Business Services", "Consumer Durables", "Education", "Entertainment & Leisure", "Gaming", "Housing", "Lodging", "Media", "Restaurants & Pubs", "Retail", "Textile, Apparel & Footwear", "Travel"],
+    "ENERGY": ["Clean Energy", "Energy", "Gas", "Oil", "Oil Services"],
+    "FINANCIAL SERVICES": ["Banks", "Brokers & Asset Managers", "Capital Markets", "Diversified Financials", "Insurance", "Real Estate", "Specialty Finance"],
+    "HEALTHCARE": ["Biotechnology", "Healthcare Services", "Life Sciences", "Medical Technology", "Pharmaceuticals"],
+    "INDUSTRIALS": ["Aerospace & Defense", "Capital Goods", "Construction", "Electrical Equipment", "Environmental Services", "Machinery", "Multi-Industry", "Packaging"],
+    "TECHNOLOGY": ["Communications Technology", "Hardware", "Info Services", "Internet", "IT Services", "Semiconductors", "Software", "Technology"],
+    "TELECOM SERVICES": ["Communication Services", "Satellite", "Telecom Services", "Telecom Wireless", "Towers"],
+    "TRANSPORTATION": ["Air Freight", "Airlines", "Airports", "Infrastructure", "Logistics", "Railroads", "Shipping", "Trucking"],
+    "UTILITIES": ["Diversified", "Gas", "MLPs", "Power", "Utilities", "Water"]
+}
+
 SYSTEM_PROMPT = """
 You are an expert financial analyst assistant. Your job is to classify market research emails.
 You must respond ONLY with a single, valid JSON object matching the requested schema. No conversational filler text.
@@ -19,7 +43,10 @@ date - Publication date (YYYY-MM-DD)
 market_wrap YES or NO — see Market Wrap rules below
 primary_asset_tag - The single most important asset class tag
 asset_tags - Array of ALL relevant tags (primary + sub-tags)
-companies_mentioned - Array of companies materially discussed (Only if there is an Equity tag)
+companies_mentioned - Array of companies materially discussed (Only if there is an Equity tag - e.g. "companies_mentioned": [
+            "ITX.MC",
+            "Inditex"
+        ],)
 industry_subindustry - Array of sector > subindustry strings (Equity only) e.g. ENERGY > gas
 
 
@@ -141,6 +168,84 @@ def analyze_with_llama(email_text):
         except Exception as e:
             raise Exception(f"LLM analysis error: {e}")
 
+def sanitize_entry(entry):
+    """Cleans up LLM response to match strict formatting and taxonomy rules."""
+    # 1. Market Wrap Enforcement
+    is_wrap = str(entry.get("market_wrap", "NO")).upper() == "YES"
+    if is_wrap:
+        entry["market_wrap"] = "YES"
+        entry["primary_asset_tag"] = "Market Wrap"
+        entry["asset_tags"] = ["Market Wrap"]
+        entry["companies_mentioned"] = []
+        entry["industry_subindustry"] = []
+        return entry
+
+    # 2. Flatten companies_mentioned (Handle list of objects vs list of strings)
+    raw_companies = entry.get("companies_mentioned", [])
+    clean_companies = []
+    if isinstance(raw_companies, list):
+        for item in raw_companies:
+            if isinstance(item, dict):
+                name = item.get("name") or item.get("company")
+                if name: clean_companies.append(str(name))
+            elif isinstance(item, str):
+                clean_companies.append(item)
+    entry["companies_mentioned"] = list(set(clean_companies)) # Deduplicate
+
+    # 3. Flatten and Validate industry_subindustry
+    raw_industries = entry.get("industry_subindustry", [])
+    clean_industries = []
+    if isinstance(raw_industries, list):
+        for item in raw_industries:
+            # Handle object format: {"sector": "...", "subindustry": "..."}
+            if isinstance(item, dict):
+                sec, sub = item.get("sector"), item.get("subindustry")
+                if sec and sub: clean_industries.append(f"{sec} > {sub}")
+            # Handle list format: ["TECH", "Software"]
+            elif isinstance(item, list) and len(item) >= 2:
+                clean_industries.append(f"{item[0]} > {item[1]}")
+            elif isinstance(item, str):
+                clean_industries.append(item)
+    
+    # Filter and validate industries by sector and subindustry taxonomy
+    sanitized_industries = []
+    for ind in clean_industries:
+        if " > " in ind:
+            parts = [p.strip() for p in ind.split(" > ", 1)]
+            sec_key = parts[0].upper()
+            sub_val = parts[1]
+            
+            if sec_key in VALID_INDUSTRIES:
+                # Case-insensitive check for subindustry
+                valid_subs_lower = [s.lower() for s in VALID_INDUSTRIES[sec_key]]
+                if sub_val.lower() in valid_subs_lower:
+                    # Map back to the correctly cased version from the taxonomy
+                    correct_sub = VALID_INDUSTRIES[sec_key][valid_subs_lower.index(sub_val.lower())]
+                    sanitized_industries.append(f"{sec_key} > {correct_sub}")
+    
+    entry["industry_subindustry"] = list(set(sanitized_industries))
+
+    # 4. Validate Asset Tags against Taxonomy
+    primary = entry.get("primary_asset_tag", "Unknown")
+    tags = entry.get("asset_tags", [])
+    
+    if primary not in VALID_ASSET_TAGS:
+        primary = "Unknown"
+    
+    valid_tags = list(set([t for t in tags if t in VALID_ASSET_TAGS]))
+    if primary != "Unknown" and primary not in valid_tags:
+        valid_tags.append(primary)
+        
+    entry["primary_asset_tag"] = primary
+    entry["asset_tags"] = valid_tags
+
+    # 5. Final Equity Rule: No companies/industries if 'Equity' isn't a tag
+    if "Equity" not in entry["asset_tags"]:
+        entry["companies_mentioned"] = []
+        entry["industry_subindustry"] = []
+        
+    return entry
+
 def main():
     classified_results = []
     failed_results = []
@@ -161,30 +266,17 @@ def main():
                 classification = analyze_with_llama(extracted["clean_text"])
                 
                 if classification:
-                    primary = classification.get("primary_asset_tag", "Unknown")
-                    tags = classification.get("asset_tags", [])
-                    
-                    # Ensures primary tag is included in the asset tags list
-                    if primary != "Unknown" and primary not in tags:
-                        tags.append(primary)
-                    
-                    # Company + industry tags only allowed when "Equity" is in the asset tags
-                    has_equity = any("Equity" in str(tag) for tag in tags)
-                    companies = classification.get("companies_mentioned", []) if has_equity else []
-                    industries = classification.get("industry_subindustry", []) if has_equity else []
-
-                    final_entry = {
-                        "folder_name": classification.get("folder_name", "Unknown"),
+                    # Merge AI result with local metadata and sanitize
+                    raw_entry = {
+                        **classification,
+                        "folder_name": classification.get("folder_name") or extracted["source_file"],
                         "bank": classification.get("bank", "Unknown"),
-                        "date": classification.get("date", "Unknown"),
-                        "market_wrap": classification.get("market_wrap", "NO"),
-                        "primary_asset_tag": primary,
-                        "asset_tags": tags,
-                        "companies_mentioned": companies,
-                        "industry_subindustry": industries,
                         "pdf_attachment": extracted["pdf_attachment"],
                         "source_file": extracted["source_file"]
                     }
+                    
+                    final_entry = sanitize_entry(raw_entry)
+                    
                     classified_results.append(final_entry)
                     print(f"\n--- Classified Entry: {extracted['source_file']} ---")
                     print(json.dumps(final_entry, indent=4))
@@ -207,6 +299,22 @@ def main():
     print(f"Pipeline complete! Saved results to {OUTPUT_FILE}")
     if failed_results:
         print(f"Failures recorded: {len(failed_results)}. See {FAILED_LOG_FILE}")
+        
+def sanitize_existing_json(file_path):
+    """Utility to clean up an existing JSON file without re-running the LLM."""
+    if not os.path.exists(file_path):
+        print(f"File {file_path} not found.")
+        return
+        
+    with open(file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+        
+    cleaned_data = [sanitize_entry(entry) for entry in data]
+    
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(cleaned_data, f, indent=4)
+    print(f"Successfully sanitized {len(cleaned_data)} entries in {file_path}")
 
 if __name__ == "__main__":
-    main()
+    sanitize_existing_json(OUTPUT_FILE)
+    # main()

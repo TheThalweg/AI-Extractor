@@ -4,12 +4,8 @@
         "bank": "Barclays",
         "date": "2026-04-09",
         "market_wrap": "NO",
-        "primary_asset_tag": "MedTech & Life Sciences",
-        "asset_tags": [
-            "MedTech",
-            "Life Sciences",
-            "MedTech & Life Sciences"
-        ],
+        "primary_asset_tag": "Unknown",
+        "asset_tags": [],
         "companies_mentioned": [],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -20,9 +16,8 @@
         "bank": "Barclays",
         "date": "2026-04-09",
         "market_wrap": "NO",
-        "primary_asset_tag": "Credit Research",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Credit Research",
             "Fixed Income"
         ],
         "companies_mentioned": [],
@@ -37,8 +32,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Commodities",
         "asset_tags": [
-            "Commodities",
-            "Energy"
+            "Energy",
+            "Commodities"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -56,8 +51,8 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "UBP Asia Technology Certificate",
-            "UBP Defence Certificate"
+            "UBP Defence Certificate",
+            "UBP Asia Technology Certificate"
         ],
         "industry_subindustry": [],
         "pdf_attachment": [
@@ -121,11 +116,9 @@
         "bank": "Barclays",
         "date": "2026-04-09",
         "market_wrap": "NO",
-        "primary_asset_tag": "Interest Rates",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Fixed Income",
-            "Derivatives",
-            "Interest Rates"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -154,8 +147,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Commodities",
         "asset_tags": [
-            "Commodities",
-            "Energy"
+            "Energy",
+            "Commodities"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -169,8 +162,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Macro"
+            "Macro",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -214,8 +207,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Commodities",
         "asset_tags": [
-            "Commodities",
-            "Aluminium"
+            "Commodities"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -230,8 +222,8 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
             "Commodities",
+            "Fixed Income",
             "Equity"
         ],
         "companies_mentioned": [
@@ -295,15 +287,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Nike"
+            "Equity"
         ],
         "companies_mentioned": [
             "NIKE (NKE.N)"
         ],
-        "industry_subindustry": [
-            "CONSUMER CYCLICALS > Apparel"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035257"
     },
@@ -341,8 +330,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Consumer Discretionary"
+            "Equity"
         ],
         "companies_mentioned": [
             "Busy Ming"
@@ -360,30 +348,20 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
+            "Commodities",
             "Fixed Income",
-            "Commodities"
+            "Equity"
         ],
         "companies_mentioned": [
-            {
-                "name": "Western Digital"
-            },
-            {
-                "name": "Deutsche Boerse"
-            },
-            {
-                "name": "Cisco Systems"
-            },
-            {
-                "name": "Zurich Insurance"
-            },
-            {
-                "name": "Swisscom"
-            }
+            "Cisco Systems",
+            "Western Digital",
+            "Deutsche Boerse",
+            "Swisscom",
+            "Zurich Insurance"
         ],
         "industry_subindustry": [
-            "TECHNOLOGY > Software",
-            "FINANCIAL SERVICES > Banks"
+            "FINANCIAL SERVICES > Banks",
+            "TECHNOLOGY > Software"
         ],
         "pdf_attachment": null,
         "source_file": "035261"
@@ -393,9 +371,8 @@
         "bank": "Julius Baer Group",
         "date": "2026-04-01",
         "market_wrap": "NO",
-        "primary_asset_tag": "Currency",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Currency",
             "Emerging Markets"
         ],
         "companies_mentioned": [],
@@ -410,8 +387,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Cross Asset"
+            "Equity"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -425,12 +401,11 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Consumer Discretionary"
+            "Equity"
         ],
         "companies_mentioned": [
-            "Miniso",
-            "Yonghui"
+            "Yonghui",
+            "Miniso"
         ],
         "industry_subindustry": [
             "CONSUMER CYCLICALS > Retail"
@@ -445,8 +420,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Credit Strategy"
+            "Credit Strategy",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -460,12 +435,11 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Consumer Discretionary"
+            "Equity"
         ],
         "companies_mentioned": [
-            "Miniso",
-            "Yonghui"
+            "Yonghui",
+            "Miniso"
         ],
         "industry_subindustry": [
             "CONSUMER CYCLICALS > Retail"
@@ -493,9 +467,8 @@
         "bank": "Deutsche Bank",
         "date": "2026-04-01",
         "market_wrap": "YES",
-        "primary_asset_tag": "Geopolitics",
+        "primary_asset_tag": "Market Wrap",
         "asset_tags": [
-            "Geopolitics",
             "Market Wrap"
         ],
         "companies_mentioned": [],
@@ -522,11 +495,8 @@
         "bank": "Deutsche Bank",
         "date": "2026-04-01",
         "market_wrap": "NO",
-        "primary_asset_tag": "Cloud Computing",
-        "asset_tags": [
-            "Cloud Computing",
-            "AI"
-        ],
+        "primary_asset_tag": "Unknown",
+        "asset_tags": [],
         "companies_mentioned": [],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -568,8 +538,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Macro"
+            "Macro",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -597,8 +567,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Swiss"
+            "Equity"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -626,12 +595,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Fixed Income"
+            "Fixed Income",
+            "Equity"
         ],
         "companies_mentioned": [
-            "Inditex",
-            "ITX.MC"
+            "ITX.MC",
+            "Inditex"
         ],
         "industry_subindustry": [
             "CONSUMER CYCLICALS > Retail"
@@ -672,16 +641,13 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "European Chemicals & Ingredients",
             "Fixed Income",
             "Equity"
         ],
         "companies_mentioned": [
             "European Chemicals & Ingredients"
         ],
-        "industry_subindustry": [
-            "CHEMICALS > Agriculture; Chemicals; Metals & Mining; Paper & Forest; Steel"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035280"
     },
@@ -692,8 +658,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Macro",
         "asset_tags": [
-            "Macro",
-            "Middle East"
+            "Macro"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -765,8 +730,6 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "AI",
-            "Capex",
             "Equity"
         ],
         "companies_mentioned": [
@@ -800,8 +763,6 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Credit Research",
-            "Global CLOs",
             "Fixed Income"
         ],
         "companies_mentioned": [],
@@ -845,8 +806,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Interest Rates"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -861,24 +821,23 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
+            "Commodities",
             "Fixed Income",
-            "Equity",
-            "Commodities"
+            "Equity"
         ],
         "companies_mentioned": [
-            "Nvidia",
             "Google",
-            "TSMC",
-            "Intel",
-            "Broadcom",
             "MediaTek",
             "OpenAI",
-            "AWS"
+            "Intel",
+            "Nvidia",
+            "TSMC",
+            "AWS",
+            "Broadcom"
         ],
         "industry_subindustry": [
-            "TECHNOLOGY > Semiconductors",
-            "TECHNOLOGY > Artificial Intelligence",
-            "TECHNOLOGY > Hardware"
+            "TECHNOLOGY > Hardware",
+            "TECHNOLOGY > Semiconductors"
         ],
         "pdf_attachment": null,
         "source_file": "035292"
@@ -919,17 +878,16 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Healthcare"
+            "Equity"
         ],
         "companies_mentioned": [
-            "Merck",
-            "Rocket Pharmaceuticals",
-            "Viking Therapeutics",
-            "Bristol-Myers Squibb",
             "Gilead Sciences, Inc.",
-            "Arcellx, Inc.",
+            "Merck",
+            "Bristol-Myers Squibb",
             "Galapagos NV",
+            "Arcellx, Inc.",
+            "Viking Therapeutics",
+            "Rocket Pharmaceuticals",
             "Ouro Medicines"
         ],
         "industry_subindustry": [],
@@ -944,19 +902,18 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
+            "Commodities",
             "Fixed Income",
-            "Equity",
-            "Commodities"
+            "Equity"
         ],
         "companies_mentioned": [
+            "Norsk Hydro",
             "Antofagasta",
             "Glencore",
-            "Norsk Hydro",
             "Endeavour Mining"
         ],
         "industry_subindustry": [
-            "ENERGY > Gas",
-            "METALS & MINING > Copper"
+            "ENERGY > Gas"
         ],
         "pdf_attachment": null,
         "source_file": "035296"
@@ -997,8 +954,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Macro",
         "asset_tags": [
-            "Macro",
-            "Economics"
+            "Macro"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1013,19 +969,19 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
+            "Commodities",
             "Fixed Income",
-            "Equity",
-            "Commodities"
+            "Equity"
         ],
         "companies_mentioned": [
             "AVGO",
-            "ON",
-            "NXPI",
-            "NVDA",
-            "AMD",
+            "NXP",
             "TXN",
+            "NVDA",
             "ADI",
-            "NXP"
+            "AMD",
+            "NXPI",
+            "ON"
         ],
         "industry_subindustry": [
             "TECHNOLOGY > Semiconductors"
@@ -1040,8 +996,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Cloud Computing"
+            "Equity"
         ],
         "companies_mentioned": [
             "Tencent Holdings Ltd."
@@ -1057,11 +1012,10 @@
         "bank": "Barclays",
         "date": "2026-04-09",
         "market_wrap": "NO",
-        "primary_asset_tag": "Interest Rates",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Fixed Income",
             "Macro",
-            "Interest Rates"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1073,11 +1027,10 @@
         "bank": "Barclays",
         "date": "2026-04-09",
         "market_wrap": "NO",
-        "primary_asset_tag": "Interest Rates",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Fixed Income",
             "Macro",
-            "Interest Rates"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1105,27 +1058,15 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Fixed Income",
             "Commodities",
+            "Fixed Income",
             "Equity"
         ],
         "companies_mentioned": [
-            {
-                "name": "Zions Bancorporation",
-                "tag": "Equity"
-            },
-            {
-                "name": "Huntington",
-                "tag": "Equity"
-            },
-            {
-                "name": "Goldman Sachs",
-                "tag": "Equity"
-            },
-            {
-                "name": "UMB Financial",
-                "tag": "Equity"
-            }
+            "Goldman Sachs",
+            "UMB Financial",
+            "Zions Bancorporation",
+            "Huntington"
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -1138,8 +1079,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Software & Services"
+            "Equity"
         ],
         "companies_mentioned": [
             "Amadeus IT Holdings S.A."
@@ -1157,9 +1097,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Energy",
         "asset_tags": [
-            "Energy",
-            "Solar Power",
-            "Coal"
+            "Energy"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1174,8 +1112,8 @@
         "primary_asset_tag": "Macro",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
-            "Commodities"
+            "Commodities",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1201,11 +1139,9 @@
         "bank": "Barclays",
         "date": "2026-04-10",
         "market_wrap": "NO",
-        "primary_asset_tag": "EM Strategy",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "EM FX/local",
-            "Credit Strategy",
-            "EM Strategy"
+            "Credit Strategy"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1219,16 +1155,15 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Technology"
+            "Equity"
         ],
         "companies_mentioned": [
-            "AAPL.O",
-            "TSMC",
-            "AMD",
-            "Broadcom",
             "GCP",
-            "SEMCO"
+            "AAPL.O",
+            "SEMCO",
+            "TSMC",
+            "Broadcom",
+            "AMD"
         ],
         "industry_subindustry": [
             "TECHNOLOGY > Software"
@@ -1243,8 +1178,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Credit Strategy"
+            "Credit Strategy",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1273,8 +1208,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Thematics",
         "asset_tags": [
-            "Equity",
-            "Thematics"
+            "Thematics",
+            "Equity"
         ],
         "companies_mentioned": [
             "STX",
@@ -1293,11 +1228,6 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Thematics",
         "asset_tags": [
-            "AI",
-            "Compute",
-            "Power",
-            "Labor",
-            "Memory",
             "Thematics"
         ],
         "companies_mentioned": [],
@@ -1312,52 +1242,24 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
             "Macro",
-            "Fixed Income"
+            "Fixed Income",
+            "Equity"
         ],
         "companies_mentioned": [
-            {
-                "name": "RHP"
-            },
-            {
-                "name": "HALO"
-            },
-            {
-                "name": "HGV"
-            },
-            {
-                "name": "VAC"
-            },
-            {
-                "name": "UW"
-            },
-            {
-                "name": "CHH"
-            },
-            {
-                "name": "PEB"
-            },
-            {
-                "name": "MSGE"
-            },
-            {
-                "name": "LYV"
-            }
+            "UW",
+            "HGV",
+            "PEB",
+            "LYV",
+            "MSGE",
+            "CHH",
+            "RHP",
+            "VAC",
+            "HALO"
         ],
         "industry_subindustry": [
-            {
-                "sector": "TELECOM SERVICES",
-                "subindustry": "Unknown"
-            },
-            {
-                "sector": "FINANCIAL SERVICES",
-                "subindustry": "Banks"
-            },
-            {
-                "sector": "CONSUMER CYCLICALS",
-                "subindustry": "Restaurants & Pubs"
-            }
+            "FINANCIAL SERVICES > Banks",
+            "CONSUMER CYCLICALS > Restaurants & Pubs"
         ],
         "pdf_attachment": null,
         "source_file": "035316"
@@ -1375,9 +1277,7 @@
         "companies_mentioned": [
             "Furukawa Electric"
         ],
-        "industry_subindustry": [
-            "Unknown"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035317"
     },
@@ -1388,13 +1288,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Midstream and Refining"
+            "Equity"
         ],
         "companies_mentioned": [
             "Plains All American Pipeline",
-            "Plains GP Holdings LP",
-            "KEY"
+            "KEY",
+            "Plains GP Holdings LP"
         ],
         "industry_subindustry": [
             "ENERGY > Oil"
@@ -1410,16 +1309,14 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
             "Commodities",
+            "Fixed Income",
             "Equity"
         ],
         "companies_mentioned": [
             "Cruise Lines"
         ],
-        "industry_subindustry": [
-            "LEISURE > Travel"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035319"
     },
@@ -1430,8 +1327,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Technology"
+            "Equity"
         ],
         "companies_mentioned": [
             "Meta Platforms, Inc."
@@ -1468,16 +1364,15 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Macro"
+            "Macro",
+            "Equity"
         ],
         "companies_mentioned": [
-            "Software",
-            "Staples"
+            "Staples",
+            "Software"
         ],
         "industry_subindustry": [
-            "TECHNOLOGY > Software",
-            "CONSUMER STAPLES > Staples"
+            "TECHNOLOGY > Software"
         ],
         "pdf_attachment": null,
         "source_file": "035322"
@@ -1487,11 +1382,9 @@
         "bank": "Deutsche Bank",
         "date": "2026-04-10",
         "market_wrap": "YES",
-        "primary_asset_tag": "Macro",
+        "primary_asset_tag": "Market Wrap",
         "asset_tags": [
-            "Macro",
-            "Fixed Income",
-            "Equity"
+            "Market Wrap"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1560,9 +1453,8 @@
         "bank": "Barclays Bank",
         "date": "2026-04-10",
         "market_wrap": "NO",
-        "primary_asset_tag": "Credit Research",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Credit Research",
             "Fixed Income"
         ],
         "companies_mentioned": [],
@@ -1577,60 +1469,24 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Fixed Income"
+            "Fixed Income",
+            "Equity"
         ],
         "companies_mentioned": [
-            {
-                "name": "Alstom SA",
-                "tag": "Equity"
-            },
-            {
-                "name": "AYVENS",
-                "tag": "Equity"
-            },
-            {
-                "name": "PageGroup",
-                "tag": "Equity"
-            },
-            {
-                "name": "ING",
-                "tag": "Fixed Income"
-            },
-            {
-                "name": "SKF",
-                "tag": "Equity"
-            },
-            {
-                "name": "Thales",
-                "tag": "Equity"
-            },
-            {
-                "name": "Airbus",
-                "tag": "Equity"
-            },
-            {
-                "name": "Convatec",
-                "tag": "Equity"
-            }
+            "Airbus",
+            "AYVENS",
+            "Convatec",
+            "PageGroup",
+            "Alstom SA",
+            "SKF",
+            "ING",
+            "Thales"
         ],
         "industry_subindustry": [
-            {
-                "sector": "INDUSTRIALS",
-                "subindustry": "Aerospace & Defense"
-            },
-            {
-                "sector": "ENERGY",
-                "subindustry": "Oil Services"
-            },
-            {
-                "sector": "TECHNOLOGY",
-                "subindustry": "Software"
-            },
-            {
-                "sector": "FINANCIAL SERVICES",
-                "subindustry": "Banks"
-            }
+            "FINANCIAL SERVICES > Banks",
+            "ENERGY > Oil Services",
+            "TECHNOLOGY > Software",
+            "INDUSTRIALS > Aerospace & Defense"
         ],
         "pdf_attachment": null,
         "source_file": "035329"
@@ -1642,12 +1498,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Macro"
+            "Macro",
+            "Equity"
         ],
         "companies_mentioned": [
-            "The Factory Daily Letter Banque Pictet & Cie SA",
-            "Pictet Trading & Sales"
+            "Pictet Trading & Sales",
+            "The Factory Daily Letter Banque Pictet & Cie SA"
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -1675,8 +1531,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Interest Rates"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1691,8 +1546,8 @@
         "primary_asset_tag": "Macro",
         "asset_tags": [
             "Macro",
-            "Equity",
-            "Fixed Income"
+            "Fixed Income",
+            "Equity"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1734,13 +1589,8 @@
         "bank": "Deutsche Bank",
         "date": "2026-04-10",
         "market_wrap": "NO",
-        "primary_asset_tag": "Precious Metals",
-        "asset_tags": [
-            "Gold",
-            "Silver",
-            "PGM",
-            "Precious Metals"
-        ],
+        "primary_asset_tag": "Unknown",
+        "asset_tags": [],
         "companies_mentioned": [],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -1753,56 +1603,26 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Biopharma",
             "Macro",
             "Fixed Income",
             "Equity"
         ],
         "companies_mentioned": [
-            {
-                "name": "Vertex Pharmaceuticals (VRTX.O)"
-            },
-            {
-                "name": "Gilead Sciences Inc. (GILD.O)"
-            },
-            {
-                "name": "United Therapeutics Corp (UTHR.O)"
-            },
-            {
-                "name": "Amgen Inc. (AMGN.O)"
-            },
-            {
-                "name": "Regeneron Pharmaceuticals Inc. (REGN.O)"
-            },
-            {
-                "name": "Biogen Inc (BIIB.O)"
-            },
-            {
-                "name": "BioNTech SE (BNTX.O)"
-            },
-            {
-                "name": "Pfizer Inc (PFE.N)"
-            },
-            {
-                "name": "Eli Lilly & Co. (LLY.N)"
-            },
-            {
-                "name": "Royalty Pharma Plc (RPRX.O)"
-            }
+            "BioNTech SE (BNTX.O)",
+            "Amgen Inc. (AMGN.O)",
+            "Regeneron Pharmaceuticals Inc. (REGN.O)",
+            "Eli Lilly & Co. (LLY.N)",
+            "Royalty Pharma Plc (RPRX.O)",
+            "Gilead Sciences Inc. (GILD.O)",
+            "United Therapeutics Corp (UTHR.O)",
+            "Pfizer Inc (PFE.N)",
+            "Biogen Inc (BIIB.O)",
+            "Vertex Pharmaceuticals (VRTX.O)"
         ],
         "industry_subindustry": [
-            {
-                "sector": "HEALTHCARE",
-                "subindustry": "Biotechnology"
-            },
-            {
-                "sector": "HEALTHCARE",
-                "subindustry": "Pharmaceuticals"
-            },
-            {
-                "sector": "FINANCIAL SERVICES",
-                "subindustry": "Banks"
-            }
+            "FINANCIAL SERVICES > Banks",
+            "HEALTHCARE > Biotechnology",
+            "HEALTHCARE > Pharmaceuticals"
         ],
         "pdf_attachment": null,
         "source_file": "035338"
@@ -1814,53 +1634,26 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Fixed Income"
+            "Fixed Income",
+            "Equity"
         ],
         "companies_mentioned": [
-            "UMG",
-            "Publicis",
-            "Scout24",
-            "Allegro",
-            "Vivendi",
-            "Delivery Hero",
             "Prosus/Naspers",
-            "Havas",
-            "Entain",
+            "Delivery Hero",
+            "Vivendi",
+            "Autostore",
             "BetMGM",
+            "Entain",
             "FDJ",
             "Evolution",
-            "Autostore"
+            "Publicis",
+            "UMG",
+            "Scout24",
+            "Havas",
+            "Allegro"
         ],
         "industry_subindustry": [
-            [
-                "TECHNOLOGY",
-                "Software"
-            ],
-            [
-                "MEDIA & ENTERTAINMENT",
-                "Music"
-            ],
-            [
-                "AD AGENCIES",
-                null
-            ],
-            [
-                "MEDIA",
-                null
-            ],
-            [
-                "GAMBLING",
-                null
-            ],
-            [
-                "FOOD DELIVERY",
-                null
-            ],
-            [
-                "VIDEO GAMES",
-                null
-            ]
+            "TECHNOLOGY > Software"
         ],
         "pdf_attachment": null,
         "source_file": "035339"
@@ -1872,16 +1665,6 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Autos & Shared Mobility",
-            "Building & Construction",
-            "Business Services",
-            "Diversified Financials",
-            "Food Producers",
-            "Insurance",
-            "Leisure and Hotels",
-            "Media & Entertainment",
-            "Technology - Telecoms Equipment",
-            "Tobacco",
             "Equity"
         ],
         "companies_mentioned": [
@@ -1913,8 +1696,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "FX",
         "asset_tags": [
-            "FX",
-            "Economics"
+            "FX"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1943,12 +1725,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Credit Strategy",
         "asset_tags": [
+            "Credit Strategy",
             "Macro",
             "Fixed Income",
-            "Equity",
-            "Commodities",
             "FX",
-            "Credit Strategy"
+            "Commodities",
+            "Equity"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1962,8 +1744,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Macro",
         "asset_tags": [
-            "Macro",
-            "China"
+            "Macro"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1977,14 +1758,11 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Pharmaceuticals",
-            "Biotechnology",
-            "Life Sciences"
+            "Equity"
         ],
         "companies_mentioned": [
-            "Novo Nordisk",
-            "Eli Lilly and Company"
+            "Eli Lilly and Company",
+            "Novo Nordisk"
         ],
         "industry_subindustry": [
             "HEALTHCARE > Biotechnology"
@@ -1999,8 +1777,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Pharmaceuticals"
+            "Equity"
         ],
         "companies_mentioned": [
             "Eli Lilly & Co."
@@ -2052,26 +1829,15 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Fixed Income"
+            "Fixed Income",
+            "Equity"
         ],
         "companies_mentioned": [
-            {
-                "name": "Technip Energies"
-            },
-            {
-                "name": "TSMC"
-            }
+            "TSMC",
+            "Technip Energies"
         ],
         "industry_subindustry": [
-            {
-                "sector": "ENERGY",
-                "subindustry": "Oil & Gas"
-            },
-            {
-                "sector": "TECHNOLOGY",
-                "subindustry": "Semiconductors"
-            }
+            "TECHNOLOGY > Semiconductors"
         ],
         "pdf_attachment": [
             "Daily Market Insights 10.04.2026.pdf"
@@ -2085,8 +1851,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Securitization"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2100,8 +1865,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Macro",
         "asset_tags": [
-            "Macro",
-            "CEEMEA"
+            "Macro"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2130,7 +1894,6 @@
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
             "Credit Strategy",
-            "Hybrid Capital",
             "Fixed Income"
         ],
         "companies_mentioned": [],
@@ -2145,15 +1908,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Gaming"
+            "Equity"
         ],
         "companies_mentioned": [
             "Las Vegas Sands"
         ],
-        "industry_subindustry": [
-            "Consumer Cyclical > Gaming"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035355"
     },
@@ -2211,12 +1971,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Macro"
+            "Macro",
+            "Equity"
         ],
         "companies_mentioned": [
-            "Shaw and Partners",
-            "Macquarie Group Limited"
+            "Macquarie Group Limited",
+            "Shaw and Partners"
         ],
         "industry_subindustry": [
             "FINANCIAL SERVICES > Banks"
@@ -2259,8 +2019,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Government Bonds"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2274,8 +2033,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Pharmaceuticals"
+            "Equity"
         ],
         "companies_mentioned": [
             "Eli Lilly and Company (LLY.N)"
@@ -2293,18 +2051,16 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Fixed Income"
+            "Fixed Income",
+            "Equity"
         ],
         "companies_mentioned": [
+            "GSSTUKDE",
             "FTSE 250",
-            "Small Caps",
             "Home Builders",
-            "GSSTUKDE"
+            "Small Caps"
         ],
-        "industry_subindustry": [
-            "Unknown"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035364"
     },
@@ -2344,8 +2100,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "EGBs"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2417,11 +2172,10 @@
         "bank": "Deutsche Bank",
         "date": "2026-04-07",
         "market_wrap": "NO",
-        "primary_asset_tag": "Equities",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Equities",
-            "Fixed Income",
-            "Commodities"
+            "Commodities",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2448,11 +2202,8 @@
         "bank": "Morgan Stanley",
         "date": "April 10, 2026",
         "market_wrap": "NO",
-        "primary_asset_tag": "Healthcare",
-        "asset_tags": [
-            "Healthcare",
-            "Pharmaceuticals"
-        ],
+        "primary_asset_tag": "Unknown",
+        "asset_tags": [],
         "companies_mentioned": [],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -2481,8 +2232,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Macro",
         "asset_tags": [
-            "Macro",
-            "Policy"
+            "Macro"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2500,19 +2250,19 @@
             "Equity"
         ],
         "companies_mentioned": [
+            "South Africa",
+            "Brazil",
+            "ASEAN",
+            "Colombia",
+            "Saudi Arabia",
             "Korea",
             "Taiwan",
-            "Brazil",
-            "South Africa",
-            "China",
-            "ASEAN",
-            "Saudi Arabia",
-            "Colombia"
+            "China"
         ],
         "industry_subindustry": [
+            "FINANCIAL SERVICES > Banks",
             "TECHNOLOGY > Software",
-            "ENERGY > Oil",
-            "FINANCIAL SERVICES > Banks"
+            "ENERGY > Oil"
         ],
         "pdf_attachment": null,
         "source_file": "035377"
@@ -2554,8 +2304,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Financials"
+            "Equity"
         ],
         "companies_mentioned": [
             "Citigroup Inc."
@@ -2617,15 +2366,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "US Internet"
+            "Equity"
         ],
         "companies_mentioned": [
             "Booking Holdings Inc."
         ],
-        "industry_subindustry": [
-            "TECHNOLOGY > Online Travel"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035384"
     },
@@ -2636,8 +2382,6 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Credit Research",
-            "LatAm utilities",
             "Fixed Income"
         ],
         "companies_mentioned": [],
@@ -2652,7 +2396,6 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Convertibles",
             "Fixed Income",
             "Equity"
         ],
@@ -2747,24 +2490,19 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Americas Restaurants"
+            "Equity"
         ],
         "companies_mentioned": [
             "CAVA",
-            "QSR",
-            "BROS",
-            "DPZ",
-            "EAT",
             "MCD",
             "YUM",
+            "DPZ",
+            "QSR",
+            "BROS",
+            "EAT",
             "SHAK"
         ],
-        "industry_subindustry": [
-            "FOODSERVICE > Quick Service Restaurants",
-            "FOODSERVICE > Casual Dining",
-            "FOODSERVICE > Fast Casual"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035392"
     },
@@ -2790,16 +2528,13 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Luxury Goods"
+            "Equity"
         ],
         "companies_mentioned": [
-            "Kering (PRTP.PA)",
-            "Gucci"
+            "Gucci",
+            "Kering (PRTP.PA)"
         ],
-        "industry_subindustry": [
-            "CONSUMER CYCLICALS > Luxury Goods"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035394"
     },
@@ -2810,8 +2545,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Macro"
+            "Macro",
+            "Equity"
         ],
         "companies_mentioned": [
             "Software"
@@ -2829,8 +2564,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Macro"
+            "Macro",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2858,8 +2593,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Macro"
+            "Macro",
+            "Equity"
         ],
         "companies_mentioned": [
             "MCG & Tech"
@@ -2964,8 +2699,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "FX",
         "asset_tags": [
-            "FX",
-            "EM"
+            "FX"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -3025,26 +2759,14 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Software",
-            "IT Services",
             "Equity"
         ],
         "companies_mentioned": [
-            {
-                "name": "Amadeus IT Holdings S.A."
-            },
-            {
-                "name": "Rillet"
-            },
-            {
-                "name": "Sage"
-            },
-            {
-                "name": "SAP"
-            },
-            {
-                "name": "TCS"
-            }
+            "Amadeus IT Holdings S.A.",
+            "SAP",
+            "Sage",
+            "Rillet",
+            "TCS"
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -3055,13 +2777,8 @@
         "bank": "Deutsche Bank Research",
         "date": "2026-04-12",
         "market_wrap": "NO",
-        "primary_asset_tag": "Metals & Mining",
-        "asset_tags": [
-            "Metals & Mining",
-            "Copper",
-            "Aluminium",
-            "Thermal Coal"
-        ],
+        "primary_asset_tag": "Unknown",
+        "asset_tags": [],
         "companies_mentioned": [],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -3102,8 +2819,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Games"
+            "Equity"
         ],
         "companies_mentioned": [
             "Tencent Holdings Ltd."
@@ -3121,23 +2837,20 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Gaming & Lodging",
             "Equity"
         ],
         "companies_mentioned": [
-            "HLT",
-            "MAR",
             "H",
-            "WH",
-            "CHH",
-            "BYD",
+            "PENN",
+            "HLT",
             "CZR",
+            "MAR",
+            "BYD",
             "MGM",
-            "PENN"
+            "WH",
+            "CHH"
         ],
-        "industry_subindustry": [
-            "ENTERTAINMENT > Gaming"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035414"
     },
@@ -3177,15 +2890,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Consumer Goods"
+            "Equity"
         ],
         "companies_mentioned": [
             "The Coca-Cola Company (KO.N)"
         ],
-        "industry_subindustry": [
-            "CONSUMER CYCLICALS > Beverages"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035417"
     },
@@ -3194,9 +2904,8 @@
         "bank": "Deutsche Bank",
         "date": "2026-04-13",
         "market_wrap": "NO",
-        "primary_asset_tag": "AI",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "AI",
             "Macro"
         ],
         "companies_mentioned": [],
@@ -3217,14 +2926,14 @@
         ],
         "companies_mentioned": [
             "Financials",
+            "Hyperscalers",
             "Industrials",
-            "Consumer Discretionary Goods",
-            "Hyperscalers"
+            "Consumer Discretionary Goods"
         ],
         "industry_subindustry": [
             "FINANCIAL SERVICES > Banks",
-            "CONSUMER CYCLICALS > Automobiles",
             "TECHNOLOGY > Communications Technology",
+            "CONSUMER CYCLICALS > Automobiles",
             "ENERGY > Clean Energy"
         ],
         "pdf_attachment": null,
@@ -3235,9 +2944,8 @@
         "bank": "Barclays",
         "date": "2026-04-13",
         "market_wrap": "YES",
-        "primary_asset_tag": "Macro",
+        "primary_asset_tag": "Market Wrap",
         "asset_tags": [
-            "Macro",
             "Market Wrap"
         ],
         "companies_mentioned": [],
@@ -3252,12 +2960,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Macro"
+            "Macro",
+            "Equity"
         ],
         "companies_mentioned": [
-            "SPOT.N",
             "TME",
+            "SPOT.N",
             "SUNO",
             "TTWO"
         ],
@@ -3274,18 +2982,15 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Electrical Equipment"
+            "Equity"
         ],
         "companies_mentioned": [
-            "ABB",
             "LR",
+            "SIE",
             "RXL",
-            "SIE"
+            "ABB"
         ],
-        "industry_subindustry": [
-            "TECHNOLOGY > Electrical Equipment"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035422"
     },
@@ -3296,8 +3001,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Macro"
+            "Macro",
+            "Equity"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -3309,11 +3014,10 @@
         "bank": "Deutsche Bank",
         "date": "2026-04-13",
         "market_wrap": "NO",
-        "primary_asset_tag": "Private Credit",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Fixed Income",
             "Credit Strategy",
-            "Private Credit"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -3325,10 +3029,9 @@
         "bank": "Deutsche Bank",
         "date": "2026-04-13",
         "market_wrap": "YES",
-        "primary_asset_tag": "Macro",
+        "primary_asset_tag": "Market Wrap",
         "asset_tags": [
-            "Macro",
-            "Fixed Income"
+            "Market Wrap"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -3340,19 +3043,16 @@
         "bank": "Goldman Sachs",
         "date": "2026-04-13",
         "market_wrap": "NO",
-        "primary_asset_tag": "Payment Technology",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Equity",
-            "Payment Technology"
+            "Equity"
         ],
         "companies_mentioned": [
-            "Mastercard Inc.",
             "PayPal Holdings",
+            "Mastercard Inc.",
             "Visa Inc."
         ],
-        "industry_subindustry": [
-            "FINANCIAL SERVICES > Payments"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035426"
     },
@@ -3369,9 +3069,7 @@
         "companies_mentioned": [
             "None"
         ],
-        "industry_subindustry": [
-            "Unknown"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035427"
     },
@@ -3388,9 +3086,7 @@
         "companies_mentioned": [
             "None"
         ],
-        "industry_subindustry": [
-            "Unknown"
-        ],
+        "industry_subindustry": [],
         "pdf_attachment": null,
         "source_file": "035428"
     },
@@ -3416,8 +3112,7 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Fixed Income",
         "asset_tags": [
-            "Fixed Income",
-            "Interest Rates"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -3462,9 +3157,9 @@
         "primary_asset_tag": "Macro",
         "asset_tags": [
             "Macro",
+            "Commodities",
             "Fixed Income",
-            "Equity",
-            "Commodities"
+            "Equity"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -3476,9 +3171,8 @@
         "bank": "Goldman Sachs",
         "date": "2026-04-12",
         "market_wrap": "NO",
-        "primary_asset_tag": "Economics",
+        "primary_asset_tag": "Unknown",
         "asset_tags": [
-            "Economics",
             "Macro"
         ],
         "companies_mentioned": [],
@@ -3493,26 +3187,25 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Equity",
-            "Fixed Income"
+            "Fixed Income",
+            "Equity"
         ],
         "companies_mentioned": [
-            "HOLN.S (Holcim)",
-            "AIXGn.DE (Aixtron)",
-            "SMHNn.DE (Suss Microtec)",
-            "SEBa.ST (SEB)",
-            "SHBa.ST (Handelsbanken)",
-            "SWEDa.ST (Swedbank)",
-            "ESNT.L (Essentra)",
             "RS1R.L (RS Group)",
+            "MTXGn.DE (MTU Aero Engines)",
+            "AIXGn.DE (Aixtron)",
+            "SWEDa.ST (Swedbank)",
+            "HOLN.S (Holcim)",
+            "ESNT.L (Essentra)",
+            "SHBa.ST (Handelsbanken)",
             "HNKG_p.DE (Henkel)",
-            "MTXGn.DE (MTU Aero Engines)"
+            "SEBa.ST (SEB)",
+            "SMHNn.DE (Suss Microtec)"
         ],
         "industry_subindustry": [
-            "ECONOMY > Macro",
             "FINANCIAL SERVICES > Banks",
-            "INDUSTRIALS > Aerospace & Defense",
-            "ENERGY > Oil"
+            "ENERGY > Oil",
+            "INDUSTRIALS > Aerospace & Defense"
         ],
         "pdf_attachment": null,
         "source_file": "035435"
@@ -3552,11 +3245,8 @@
         "bank": "Barclays",
         "date": "2026-04-13",
         "market_wrap": "NO",
-        "primary_asset_tag": "Credit Research",
-        "asset_tags": [
-            "Credit Research",
-            "EEMEA Corporates"
-        ],
+        "primary_asset_tag": "Unknown",
+        "asset_tags": [],
         "companies_mentioned": [],
         "industry_subindustry": [],
         "pdf_attachment": null,

@@ -9,14 +9,13 @@ OUTPUT_FILE = "classified_emails.json"
 FAILED_LOG_FILE = "failed_emails.json"
 
 # --- Taxonomy Definitions ---
-VALID_ASSET_TAGS = {
-    "Macro", "Developed Markets", "Emerging Markets",
-    "Fixed Income", "Credit Strategy", "Rates Strategy", "Securitisation",
-    "Equity", "Company Research", "Portfolio Strategy", "Thematic Investing",
-    "Commodities", "Energy", "Metals", "Agriculture",
-    "FX", "USD", "EUR", "JPY", "GBP", "CHF", "Other",
-    "Thematics", "Market Wrap"
-}
+TAXONOMY_PATH = "taxonomy.json"
+with open(TAXONOMY_PATH, "r", encoding="utf-8") as f:
+    TAXONOMY_DATA = json.load(f).get("asset_taxonomy", {})
+
+VALID_ASSET_TAGS = set(TAXONOMY_DATA.keys())
+for sub_tags in TAXONOMY_DATA.values():
+    VALID_ASSET_TAGS.update(sub_tags)
 
 VALID_INDUSTRIES = {
     "BASIC MATERIALS": ["Agriculture", "Chemicals", "Metals & Mining", "Paper & Forest", "Steel"],
@@ -86,7 +85,7 @@ Use the following roles to determine whether an email is a Market Wrap. If the m
    - Commodities [Sub-tags: Energy, Metals, Agriculture]
    - FX [Sub-tags: USD, EUR, JPY, GBP, CHF, Other]
    - Thematics [No sub-tags]
-   Only assign a tag/sub-tag if it is MATERIALIZED and discussed meaningfully, not just passing mentions.
+   Only assign a tag/sub-tag if it is MATERIALIZED and discussed meaningfully, not just passing mentions. Only use the given tags
 
 3. INDUSTRY TAGGING TAXONOMY (Only if Equity tag is applied AND specific companies/sectors are discussed):
    Format must be "SECTOR > Subindustry" (e.g., "TECHNOLOGY > Software", "FINANCIAL SERVICES > Banks"). If indiscernible, use "Unknown".
@@ -147,7 +146,8 @@ def analyze_with_llama(email_text):
     """Sends clean text to Llama 3 enforcing a native JSON structure response."""
     user_prompt = f"Analyze the following financial research text and classify it:\n\n{email_text}"
 
-    # Use ThreadPoolExecutor to enforce a 2-minute (120s) timeout
+    # Uses ThreadPoolExecutor to enforce a 2-minute (120s) timeout
+    # I had one of the classifications take 10 minutes and then it gave back an error anyway so this handles that
     with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
         future = executor.submit(
             ollama.chat,
@@ -168,9 +168,12 @@ def analyze_with_llama(email_text):
         except Exception as e:
             raise Exception(f"LLM analysis error: {e}")
 
+# Sometimes the AI spits out something formatted incorrectly so this is just to correct the format
+# This doesn't fix the fact that some of the companies the AI spits out are the same but named slightly differently
+# This could probably be fixed by having another run through an LLM, identifying the company names that are the same and 
+# normalising it. I left this out as I didn't think it was necessary for the task
 def sanitize_entry(entry):
-    """Cleans up LLM response to match strict formatting and taxonomy rules."""
-    # 1. Market Wrap Enforcement
+    # Enforces market wrap requirements
     is_wrap = str(entry.get("market_wrap", "NO")).upper() == "YES"
     if is_wrap:
         entry["market_wrap"] = "YES"
@@ -180,7 +183,7 @@ def sanitize_entry(entry):
         entry["industry_subindustry"] = []
         return entry
 
-    # 2. Flatten companies_mentioned (Handle list of objects vs list of strings)
+    # Sometimes the AI spat out a array of {name: Company} entries so this handles that
     raw_companies = entry.get("companies_mentioned", [])
     clean_companies = []
     if isinstance(raw_companies, list):
@@ -192,22 +195,23 @@ def sanitize_entry(entry):
                 clean_companies.append(item)
     entry["companies_mentioned"] = list(set(clean_companies)) # Deduplicate
 
-    # 3. Flatten and Validate industry_subindustry
+    # Similar to companies mentioned cleaning
     raw_industries = entry.get("industry_subindustry", [])
     clean_industries = []
     if isinstance(raw_industries, list):
         for item in raw_industries:
-            # Handle object format: {"sector": "...", "subindustry": "..."}
+            # Handles object format: {"sector": "...", "subindustry": "..."}
             if isinstance(item, dict):
                 sec, sub = item.get("sector"), item.get("subindustry")
                 if sec and sub: clean_industries.append(f"{sec} > {sub}")
-            # Handle list format: ["TECH", "Software"]
+            # Handles list format: ["TECH", "Software"]
             elif isinstance(item, list) and len(item) >= 2:
                 clean_industries.append(f"{item[0]} > {item[1]}")
             elif isinstance(item, str):
                 clean_industries.append(item)
     
     # Filter and validate industries by sector and subindustry taxonomy
+    # Sometimes the AI was hallucinating industries despite me telling it the allowed industries
     sanitized_industries = []
     for ind in clean_industries:
         if " > " in ind:
@@ -225,7 +229,7 @@ def sanitize_entry(entry):
     
     entry["industry_subindustry"] = list(set(sanitized_industries))
 
-    # 4. Validate Asset Tags against Taxonomy
+    # Same as before but with assets. Also ensures primary tag is included in asset tags
     primary = entry.get("primary_asset_tag", "Unknown")
     tags = entry.get("asset_tags", [])
     
@@ -239,7 +243,7 @@ def sanitize_entry(entry):
     entry["primary_asset_tag"] = primary
     entry["asset_tags"] = valid_tags
 
-    # 5. Final Equity Rule: No companies/industries if 'Equity' isn't a tag
+    # Ensures that we only have companies and industries when we have an equity tag
     if "Equity" not in entry["asset_tags"]:
         entry["companies_mentioned"] = []
         entry["industry_subindustry"] = []
@@ -284,24 +288,25 @@ def main():
                     raise Exception("Ollama did not return a valid classification object.")
             except Exception as e:
                 print(f"Error processing {html_path}: {e}")
+                # Record failed results so we can fix it later
                 failed_results.append({
                     "file": html_path,
                     "error": str(e)
                 })
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(classified_results, f, indent=4)
+        json.dump(classified_results, f, indent=4, ensure_ascii=False)
 
     if failed_results:
         with open(FAILED_LOG_FILE, "w", encoding="utf-8") as f:
-            json.dump(failed_results, f, indent=4)
+            json.dump(failed_results, f, indent=4, ensure_ascii=False)
 
     print(f"Pipeline complete! Saved results to {OUTPUT_FILE}")
     if failed_results:
         print(f"Failures recorded: {len(failed_results)}. See {FAILED_LOG_FILE}")
         
+# The original run took 2 hours so I just ran this to sanitize the incorrectly formatted data afterthefact
 def sanitize_existing_json(file_path):
-    """Utility to clean up an existing JSON file without re-running the LLM."""
     if not os.path.exists(file_path):
         print(f"File {file_path} not found.")
         return
@@ -316,5 +321,4 @@ def sanitize_existing_json(file_path):
     print(f"Successfully sanitized {len(cleaned_data)} entries in {file_path}")
 
 if __name__ == "__main__":
-    sanitize_existing_json(OUTPUT_FILE)
-    # main()
+    main()

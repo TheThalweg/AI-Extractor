@@ -1,0 +1,11 @@
+{
+    "asset_taxonomy": {
+        "Macro": ["Developed Markets", "Emerging Markets"],
+        "Fixed Income": ["Credit Strategy", "Rates Strategy", "Securitisation"],
+        "Equity": ["Company Research", "Portfolio Strategy", "Thematic Investing"],
+        "Commodities": ["Energy", "Metals", "Agriculture"],
+        "FX": ["USD", "EUR", "JPY", "GBP", "CHF", "Other"],
+        "Thematics": [],
+        "Market Wrap": []
+    }
+}

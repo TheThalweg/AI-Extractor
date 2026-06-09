@@ -4,12 +4,12 @@ import json
 import time
 from datetime import datetime, date
 
+# Finviz was being rejected by my firewall so I'm just pulling from cnbc
 NEWS_URL = "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664"
 OUTPUT_FILE = "news.json"
 FETCH_INTERVAL_SECONDS = 600  # 10 minutes
 
 def fetch_news():
-    """Fetches news headlines from CNBC RSS feed."""
     try:
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
         response = requests.get(NEWS_URL, headers=headers)
@@ -40,7 +40,6 @@ def fetch_news():
         return None
 
 def main():
-    """Main loop to fetch and save news periodically."""
     while True:
         print("Fetching latest financial news...")
         headlines = fetch_news()

@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // State 
     let allEmails = [];
+    let assetTaxonomy = {};
+    let currentlyActiveItem = null;
     let activeFilters = {
         search: '',
         asset_tags: new Set(),
@@ -25,23 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
         dateTo: ''
     };
 
-    // I probably should have this shared between this and the python but this is fine for now
-    const ASSET_TAXONOMY = {
-        "Macro": ["Developed Markets", "Emerging Markets"],
-        "Fixed Income": ["Credit Strategy", "Rates Strategy", "Securitisation"],
-        "Equity": ["Company Research", "Portfolio Strategy", "Thematic Investing"],
-        "Commodities": ["Energy", "Metals", "Agriculture"],
-        "FX": ["USD", "EUR", "JPY", "GBP", "CHF", "Other"],
-        "Thematics": [],
-        "Market Wrap": []
-    };
-
     // Initialization
     async function initializeDashboard() {
         fetchNews();
-        const emails = await fetchEmails();
-        if (emails) {
+        const [emails, taxonomy] = await Promise.all([
+            fetchEmails(),
+            fetchTaxonomy()
+        ]);
+        if (emails && taxonomy) {
             allEmails = emails;
+            assetTaxonomy = taxonomy;
             populateFilterOptions(allEmails);
             renderEmailList();
             addEventListeners();
@@ -57,6 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error(error);
             emailList.innerHTML = '<li>Error loading emails.</li>';
+            return null;
+        }
+    }
+
+    async function fetchTaxonomy() {
+        try {
+            const response = await fetch('/api/taxonomy');
+            if (!response.ok) throw new Error('Failed to fetch taxonomy');
+            return await response.json();
+        } catch (error) {
+            console.error(error);
             return null;
         }
     }
@@ -83,14 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.headline}</a>
             </div>
         `).join('');
-        // Duplicate content for seamless scrolling
+        // Duplicates content for seamless scrolling
         tickerContent.innerHTML = headlinesHtml + headlinesHtml;
     }
 
     function renderEmailList() {
         let filteredEmails = [...allEmails];
 
-        // Apply search filter
+        // Applies search filter
         if (activeFilters.search) {
             const searchTerm = activeFilters.search.toLowerCase();
             filteredEmails = filteredEmails.filter(email =>
@@ -100,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         }
 
-        // Apply date filter
+        // Applies date filter
         if (activeFilters.dateFrom || activeFilters.dateTo) {
             filteredEmails = filteredEmails.filter(email => {
                 if (!email.date || email.date === "Unknown") return false;
@@ -111,12 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Apply bank filter
+        // Applies bank filter
         if (activeFilters.banks.size > 0) {
             filteredEmails = filteredEmails.filter(email => email.bank && activeFilters.banks.has(email.bank));
         }
 
-        // Apply asset tag filter
+        // Applies asset tag filter
         if (activeFilters.asset_tags.size > 0) {
             filteredEmails = filteredEmails.filter(email =>
                 email.asset_tags && email.asset_tags.some(tag => activeFilters.asset_tags.has(tag))
@@ -180,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <label><input type="checkbox" data-filter="banks" value="${bank}"> ${bank}</label>
         `).join('');
 
-        assetTagsFilter.innerHTML = Object.entries(ASSET_TAXONOMY).map(([parent, subs]) => `
+        assetTagsFilter.innerHTML = Object.entries(assetTaxonomy).map(([parent, subs]) => `
             <div class="asset-category">
                 <div class="category-header">
                     <button class="toggle-subs" style="${subs.length === 0 ? 'visibility:hidden' : ''}">▶</button>
@@ -292,19 +298,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // This handles the logic that ensures emails are highlighted blue on select
     function handleEmailSelection(selectedItem) {
-        // Remove active class from all items
-        emailList.querySelectorAll('.email-item').forEach(item => item.classList.remove('active'));
-        // Add active class to the selected one
+        if (!selectedItem) return;
+
+        if (currentlyActiveItem) {
+            currentlyActiveItem.classList.remove('active');
+        }
+        
         selectedItem.classList.add('active');
+        currentlyActiveItem = selectedItem;
 
         const emailId = selectedItem.dataset.id;
         const email = allEmails.find(e => e.source_file === emailId);
         if (email) {
             displayEmailContent(email);
+            // Puts viewer at the top
+            viewerContent.scrollTop = 0;
         }
     }
 
-    // --- Start the application ---
     initializeDashboard();
 });

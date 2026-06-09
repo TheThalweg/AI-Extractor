@@ -1,4 +1,3 @@
-/* GPT made most of this pretty then I did some edits after */
 :root {
     --bg-color: #f4f7fa;
     --sidebar-bg: #ffffff;
@@ -177,7 +176,9 @@ body {
 .filter-group div { display: flex; flex-direction: column; gap: 5px; }
 .filter-group label { font-size: 0.9em; cursor: pointer; }
 
-/* --- Nested Asset Tags (Nuclear Option) --- */
+/* It was refusing to have the arrows be to the left of the boxes unless I put
+   important everywhere */
+/* --- Nested Asset Tags --- */
 .asset-category { margin-bottom: 0; }
 
 /* Forces a strict 2-column layout: Arrow on the left, text on the right */

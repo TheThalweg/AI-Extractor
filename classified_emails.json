@@ -42,7 +42,7 @@
     },
     {
         "folder_name": "Market Research",
-        "bank": "Union Bancaire Priv\u00e9e (UBP)",
+        "bank": "Union Bancaire Privée (UBP)",
         "date": "2026-03-xx",
         "market_wrap": "NO",
         "primary_asset_tag": "Macro",
@@ -51,8 +51,8 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "UBP Defence Certificate",
-            "UBP Asia Technology Certificate"
+            "UBP Asia Technology Certificate",
+            "UBP Defence Certificate"
         ],
         "industry_subindustry": [],
         "pdf_attachment": [
@@ -68,8 +68,8 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -222,9 +222,9 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
+            "Equity",
             "Commodities",
-            "Fixed Income",
-            "Equity"
+            "Fixed Income"
         ],
         "companies_mentioned": [
             "Bank of Japan (BOJ)"
@@ -348,16 +348,16 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
+            "Equity",
             "Commodities",
-            "Fixed Income",
-            "Equity"
+            "Fixed Income"
         ],
         "companies_mentioned": [
+            "Zurich Insurance",
             "Cisco Systems",
             "Western Digital",
             "Deutsche Boerse",
-            "Swisscom",
-            "Zurich Insurance"
+            "Swisscom"
         ],
         "industry_subindustry": [
             "FINANCIAL SERVICES > Banks",
@@ -548,7 +548,7 @@
     },
     {
         "folder_name": "UBP EAM Analysis",
-        "bank": "Union Bancaire Priv\u00e9e (UBP) SA",
+        "bank": "Union Bancaire Privée (UBP) SA",
         "date": "2026-03-31",
         "market_wrap": "NO",
         "primary_asset_tag": "Macro",
@@ -595,12 +595,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
-            "ITX.MC",
-            "Inditex"
+            "Inditex",
+            "ITX.MC"
         ],
         "industry_subindustry": [
             "CONSUMER CYCLICALS > Retail"
@@ -622,7 +622,7 @@
     },
     {
         "folder_name": "Market Research",
-        "bank": "Union Bancaire Priv\u00e9e (UBP) SA",
+        "bank": "Union Bancaire Privée (UBP) SA",
         "date": "2023-03-15",
         "market_wrap": "NO",
         "primary_asset_tag": "FX",
@@ -641,8 +641,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
             "European Chemicals & Ingredients"
@@ -821,18 +821,18 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
+            "Equity",
             "Commodities",
-            "Fixed Income",
-            "Equity"
+            "Fixed Income"
         ],
         "companies_mentioned": [
-            "Google",
             "MediaTek",
-            "OpenAI",
-            "Intel",
-            "Nvidia",
             "TSMC",
+            "Nvidia",
+            "Google",
+            "OpenAI",
             "AWS",
+            "Intel",
             "Broadcom"
         ],
         "industry_subindustry": [
@@ -881,14 +881,14 @@
             "Equity"
         ],
         "companies_mentioned": [
+            "Viking Therapeutics",
+            "Galapagos NV",
+            "Rocket Pharmaceuticals",
             "Gilead Sciences, Inc.",
             "Merck",
+            "Ouro Medicines",
             "Bristol-Myers Squibb",
-            "Galapagos NV",
-            "Arcellx, Inc.",
-            "Viking Therapeutics",
-            "Rocket Pharmaceuticals",
-            "Ouro Medicines"
+            "Arcellx, Inc."
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -902,15 +902,15 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
+            "Equity",
             "Commodities",
-            "Fixed Income",
-            "Equity"
+            "Fixed Income"
         ],
         "companies_mentioned": [
-            "Norsk Hydro",
+            "Endeavour Mining",
             "Antofagasta",
-            "Glencore",
-            "Endeavour Mining"
+            "Norsk Hydro",
+            "Glencore"
         ],
         "industry_subindustry": [
             "ENERGY > Gas"
@@ -969,19 +969,19 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
+            "Equity",
             "Commodities",
-            "Fixed Income",
-            "Equity"
+            "Fixed Income"
         ],
         "companies_mentioned": [
+            "NXPI",
             "AVGO",
-            "NXP",
-            "TXN",
-            "NVDA",
+            "ON",
             "ADI",
             "AMD",
-            "NXPI",
-            "ON"
+            "NVDA",
+            "NXP",
+            "TXN"
         ],
         "industry_subindustry": [
             "TECHNOLOGY > Semiconductors"
@@ -1058,15 +1058,15 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
+            "Equity",
             "Commodities",
-            "Fixed Income",
-            "Equity"
+            "Fixed Income"
         ],
         "companies_mentioned": [
-            "Goldman Sachs",
             "UMB Financial",
             "Zions Bancorporation",
-            "Huntington"
+            "Huntington",
+            "Goldman Sachs"
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -1159,11 +1159,11 @@
         ],
         "companies_mentioned": [
             "GCP",
+            "TSMC",
             "AAPL.O",
             "SEMCO",
-            "TSMC",
-            "Broadcom",
-            "AMD"
+            "AMD",
+            "Broadcom"
         ],
         "industry_subindustry": [
             "TECHNOLOGY > Software"
@@ -1243,16 +1243,16 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
-            "UW",
+            "CHH",
             "HGV",
             "PEB",
             "LYV",
             "MSGE",
-            "CHH",
+            "UW",
             "RHP",
             "VAC",
             "HALO"
@@ -1291,8 +1291,8 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "Plains All American Pipeline",
             "KEY",
+            "Plains All American Pipeline",
             "Plains GP Holdings LP"
         ],
         "industry_subindustry": [
@@ -1309,9 +1309,9 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
+            "Equity",
             "Commodities",
-            "Fixed Income",
-            "Equity"
+            "Fixed Income"
         ],
         "companies_mentioned": [
             "Cruise Lines"
@@ -1368,8 +1368,8 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "Staples",
-            "Software"
+            "Software",
+            "Staples"
         ],
         "industry_subindustry": [
             "TECHNOLOGY > Software"
@@ -1469,24 +1469,24 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
+            "SKF",
             "Airbus",
-            "AYVENS",
-            "Convatec",
             "PageGroup",
             "Alstom SA",
-            "SKF",
             "ING",
-            "Thales"
+            "Thales",
+            "Convatec",
+            "AYVENS"
         ],
         "industry_subindustry": [
+            "INDUSTRIALS > Aerospace & Defense",
             "FINANCIAL SERVICES > Banks",
-            "ENERGY > Oil Services",
             "TECHNOLOGY > Software",
-            "INDUSTRIALS > Aerospace & Defense"
+            "ENERGY > Oil Services"
         ],
         "pdf_attachment": null,
         "source_file": "035329"
@@ -1502,8 +1502,8 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "Pictet Trading & Sales",
-            "The Factory Daily Letter Banque Pictet & Cie SA"
+            "The Factory Daily Letter Banque Pictet & Cie SA",
+            "Pictet Trading & Sales"
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -1546,8 +1546,8 @@
         "primary_asset_tag": "Macro",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1604,25 +1604,25 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
-            "BioNTech SE (BNTX.O)",
-            "Amgen Inc. (AMGN.O)",
-            "Regeneron Pharmaceuticals Inc. (REGN.O)",
-            "Eli Lilly & Co. (LLY.N)",
-            "Royalty Pharma Plc (RPRX.O)",
-            "Gilead Sciences Inc. (GILD.O)",
             "United Therapeutics Corp (UTHR.O)",
-            "Pfizer Inc (PFE.N)",
+            "Gilead Sciences Inc. (GILD.O)",
+            "BioNTech SE (BNTX.O)",
+            "Royalty Pharma Plc (RPRX.O)",
+            "Amgen Inc. (AMGN.O)",
+            "Vertex Pharmaceuticals (VRTX.O)",
             "Biogen Inc (BIIB.O)",
-            "Vertex Pharmaceuticals (VRTX.O)"
+            "Eli Lilly & Co. (LLY.N)",
+            "Pfizer Inc (PFE.N)",
+            "Regeneron Pharmaceuticals Inc. (REGN.O)"
         ],
         "industry_subindustry": [
             "FINANCIAL SERVICES > Banks",
-            "HEALTHCARE > Biotechnology",
-            "HEALTHCARE > Pharmaceuticals"
+            "HEALTHCARE > Pharmaceuticals",
+            "HEALTHCARE > Biotechnology"
         ],
         "pdf_attachment": null,
         "source_file": "035338"
@@ -1634,23 +1634,23 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
-            "Prosus/Naspers",
-            "Delivery Hero",
-            "Vivendi",
-            "Autostore",
-            "BetMGM",
             "Entain",
-            "FDJ",
+            "BetMGM",
             "Evolution",
-            "Publicis",
-            "UMG",
-            "Scout24",
+            "Delivery Hero",
+            "FDJ",
             "Havas",
-            "Allegro"
+            "Autostore",
+            "Publicis",
+            "Allegro",
+            "Prosus/Naspers",
+            "Vivendi",
+            "Scout24",
+            "UMG"
         ],
         "industry_subindustry": [
             "TECHNOLOGY > Software"
@@ -1668,8 +1668,8 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "Hermes International S.C.A.",
-            "LVMH Moet Hennessy Louis Vuitton SA"
+            "LVMH Moet Hennessy Louis Vuitton SA",
+            "Hermes International S.C.A."
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -1725,12 +1725,12 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Credit Strategy",
         "asset_tags": [
-            "Credit Strategy",
-            "Macro",
-            "Fixed Income",
             "FX",
-            "Commodities",
-            "Equity"
+            "Credit Strategy",
+            "Fixed Income",
+            "Macro",
+            "Equity",
+            "Commodities"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -1824,13 +1824,13 @@
     },
     {
         "folder_name": "Research Notes",
-        "bank": "Union Bancaire Priv\u00e9e (UBP)",
+        "bank": "Union Bancaire Privée (UBP)",
         "date": "2023-03-xx",
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
             "TSMC",
@@ -1919,7 +1919,7 @@
     },
     {
         "folder_name": "Market Wrap",
-        "bank": "Union Bancaire Priv\u00e9e (UBP) SA",
+        "bank": "Union Bancaire Privée (UBP) SA",
         "date": "2023-03-01",
         "market_wrap": "YES",
         "primary_asset_tag": "Market Wrap",
@@ -1941,8 +1941,8 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
-            "Commodities",
-            "Equity"
+            "Equity",
+            "Commodities"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2051,14 +2051,14 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
             "GSSTUKDE",
-            "FTSE 250",
             "Home Builders",
-            "Small Caps"
+            "Small Caps",
+            "FTSE 250"
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -2211,7 +2211,7 @@
     },
     {
         "folder_name": "Market Wrap",
-        "bank": "Union Bancaire Priv\u00e9e (UBP) SA",
+        "bank": "Union Bancaire Privée (UBP) SA",
         "date": "2023-03-20",
         "market_wrap": "YES",
         "primary_asset_tag": "Market Wrap",
@@ -2250,14 +2250,14 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "South Africa",
-            "Brazil",
-            "ASEAN",
-            "Colombia",
-            "Saudi Arabia",
-            "Korea",
             "Taiwan",
-            "China"
+            "Brazil",
+            "Colombia",
+            "South Africa",
+            "Saudi Arabia",
+            "China",
+            "ASEAN",
+            "Korea"
         ],
         "industry_subindustry": [
             "FINANCIAL SERVICES > Banks",
@@ -2396,8 +2396,8 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
             "AI infrastructure converts"
@@ -2445,8 +2445,8 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2493,13 +2493,13 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "CAVA",
-            "MCD",
-            "YUM",
-            "DPZ",
             "QSR",
+            "DPZ",
+            "CAVA",
             "BROS",
+            "MCD",
             "EAT",
+            "YUM",
             "SHAK"
         ],
         "industry_subindustry": [],
@@ -2531,8 +2531,8 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "Gucci",
-            "Kering (PRTP.PA)"
+            "Kering (PRTP.PA)",
+            "Gucci"
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -2714,8 +2714,8 @@
         "primary_asset_tag": "Macro",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -2762,11 +2762,11 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "Amadeus IT Holdings S.A.",
-            "SAP",
-            "Sage",
             "Rillet",
-            "TCS"
+            "TCS",
+            "Amadeus IT Holdings S.A.",
+            "Sage",
+            "SAP"
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -2840,15 +2840,15 @@
             "Equity"
         ],
         "companies_mentioned": [
-            "H",
-            "PENN",
-            "HLT",
-            "CZR",
-            "MAR",
-            "BYD",
+            "CHH",
             "MGM",
-            "WH",
-            "CHH"
+            "CZR",
+            "PENN",
+            "BYD",
+            "MAR",
+            "H",
+            "HLT",
+            "WH"
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -2921,20 +2921,20 @@
         "primary_asset_tag": "Equity",
         "asset_tags": [
             "Macro",
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
-            "Financials",
-            "Hyperscalers",
             "Industrials",
+            "Hyperscalers",
+            "Financials",
             "Consumer Discretionary Goods"
         ],
         "industry_subindustry": [
             "FINANCIAL SERVICES > Banks",
-            "TECHNOLOGY > Communications Technology",
             "CONSUMER CYCLICALS > Automobiles",
-            "ENERGY > Clean Energy"
+            "ENERGY > Clean Energy",
+            "TECHNOLOGY > Communications Technology"
         ],
         "pdf_attachment": null,
         "source_file": "035419"
@@ -2965,9 +2965,9 @@
         ],
         "companies_mentioned": [
             "TME",
-            "SPOT.N",
             "SUNO",
-            "TTWO"
+            "TTWO",
+            "SPOT.N"
         ],
         "industry_subindustry": [
             "TECHNOLOGY > Software"
@@ -2985,9 +2985,9 @@
             "Equity"
         ],
         "companies_mentioned": [
+            "RXL",
             "LR",
             "SIE",
-            "RXL",
             "ABB"
         ],
         "industry_subindustry": [],
@@ -3049,8 +3049,8 @@
         ],
         "companies_mentioned": [
             "PayPal Holdings",
-            "Mastercard Inc.",
-            "Visa Inc."
+            "Visa Inc.",
+            "Mastercard Inc."
         ],
         "industry_subindustry": [],
         "pdf_attachment": null,
@@ -3157,9 +3157,9 @@
         "primary_asset_tag": "Macro",
         "asset_tags": [
             "Macro",
+            "Equity",
             "Commodities",
-            "Fixed Income",
-            "Equity"
+            "Fixed Income"
         ],
         "companies_mentioned": [],
         "industry_subindustry": [],
@@ -3187,25 +3187,25 @@
         "market_wrap": "NO",
         "primary_asset_tag": "Equity",
         "asset_tags": [
-            "Fixed Income",
-            "Equity"
+            "Equity",
+            "Fixed Income"
         ],
         "companies_mentioned": [
-            "RS1R.L (RS Group)",
-            "MTXGn.DE (MTU Aero Engines)",
-            "AIXGn.DE (Aixtron)",
             "SWEDa.ST (Swedbank)",
-            "HOLN.S (Holcim)",
             "ESNT.L (Essentra)",
-            "SHBa.ST (Handelsbanken)",
+            "HOLN.S (Holcim)",
+            "AIXGn.DE (Aixtron)",
+            "RS1R.L (RS Group)",
+            "SMHNn.DE (Suss Microtec)",
             "HNKG_p.DE (Henkel)",
+            "MTXGn.DE (MTU Aero Engines)",
             "SEBa.ST (SEB)",
-            "SMHNn.DE (Suss Microtec)"
+            "SHBa.ST (Handelsbanken)"
         ],
         "industry_subindustry": [
+            "INDUSTRIALS > Aerospace & Defense",
             "FINANCIAL SERVICES > Banks",
-            "ENERGY > Oil",
-            "INDUSTRIALS > Aerospace & Defense"
+            "ENERGY > Oil"
         ],
         "pdf_attachment": null,
         "source_file": "035435"
